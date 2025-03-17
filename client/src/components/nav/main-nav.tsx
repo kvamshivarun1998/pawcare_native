@@ -1,7 +1,10 @@
 import { Link } from "wouter";
 import { UserNav } from "./user-nav";
+import { useAuth } from "@/lib/auth";
 
 export function MainNav() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <nav className="border-b">
       <div className="flex h-16 items-center px-4 container mx-auto">
@@ -39,7 +42,14 @@ export function MainNav() {
               Pet Care
             </a>
           </Link>
-          <UserNav />
+          {isAuthenticated && <UserNav />}
+          {!isAuthenticated && (
+            <Link href="/login">
+              <a className="text-sm font-medium transition-colors hover:text-primary">
+                Login
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

@@ -10,6 +10,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 import { Link } from "wouter";
+import { useAuth } from "@/lib/auth";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -21,6 +22,7 @@ type LoginValues = z.infer<typeof loginSchema>;
 export default function Login() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const { login } = useAuth();
 
   const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
@@ -30,11 +32,12 @@ export default function Login() {
     },
   });
 
-  const { mutate: login, isPending } = useMutation({
+  const { mutate: loginMutation, isPending } = useMutation({
     mutationFn: async (values: LoginValues) => {
       await apiRequest("POST", "/api/auth/login", values);
     },
     onSuccess: () => {
+      login(); // Set authentication state
       toast({
         title: "Success",
         description: "Logged in successfully",
@@ -58,7 +61,7 @@ export default function Login() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit((values) => login(values))} className="space-y-4">
+            <form onSubmit={form.handleSubmit((values) => loginMutation(values))} className="space-y-4">
               <FormField
                 control={form.control}
                 name="username"
