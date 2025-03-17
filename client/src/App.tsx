@@ -13,6 +13,8 @@ import PetCare from "@/pages/pet-care";
 import Profile from "@/pages/profile";
 import Vaccination from "@/pages/vaccination";
 import PetKYC from "@/pages/pet-kyc";
+import Login from "@/pages/login";
+import Register from "@/pages/register";
 
 function Router() {
   return (
@@ -23,6 +25,8 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/community" component={Community} />
       <Route path="/pet-care" component={PetCare} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route path="/profile" component={Profile} />
       <Route path="/vaccination" component={Vaccination} />
       <Route path="/pet-kyc" component={PetKYC} />

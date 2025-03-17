@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export function Hero() {
   return (
@@ -11,9 +12,18 @@ export function Hero() {
           Your trusted partner in providing the best care for your furry friends.
           From health tracking to community support, we've got everything covered.
         </p>
-        <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-500">
-          Get Started
-        </Button>
+        <div className="space-x-4">
+          <Link href="/register">
+            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-500">
+              Get Started
+            </Button>
+          </Link>
+          <Link href="/login">
+            <Button size="lg" variant="outline">
+              Login
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
