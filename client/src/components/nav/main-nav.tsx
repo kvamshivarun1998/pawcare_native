@@ -12,29 +12,29 @@ export function MainNav() {
             </span>
           </a>
         </Link>
-        
+
         <div className="ml-auto flex items-center space-x-6">
-          <Link href="/#about">
+          <Link href="/about">
             <a className="text-sm font-medium transition-colors hover:text-primary">
               About Us
             </a>
           </Link>
-          <Link href="/#store">
+          <Link href="/store">
             <a className="text-sm font-medium transition-colors hover:text-primary">
               Store
             </a>
           </Link>
-          <Link href="/#blog">
+          <Link href="/blog">
             <a className="text-sm font-medium transition-colors hover:text-primary">
               Blog
             </a>
           </Link>
-          <Link href="/#community">
+          <Link href="/community">
             <a className="text-sm font-medium transition-colors hover:text-primary">
               Community
             </a>
           </Link>
-          <Link href="/#pet-care">
+          <Link href="/pet-care">
             <a className="text-sm font-medium transition-colors hover:text-primary">
               Pet Care
             </a>
