@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import type { Express } from "express";
 import { createServer } from "http";
 import { storage } from "./storage";
